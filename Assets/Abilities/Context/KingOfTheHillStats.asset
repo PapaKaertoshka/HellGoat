@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 539e75d5db3803d46bac1711d1aeec22, type: 3}
+  m_Name: KingOfTheHillStats
+  m_EditorClassIdentifier: 
+  name: King Of The Hill
+  cooldownTime: 5
+  activeTime: 7
+  _icon: {fileID: 21300000, guid: ba8020bb05abe524c86b3e91ddbb1eb2, type: 3}
+  _zone: {fileID: 8537092417984125896, guid: 9944bbbf1834a04459c8347bed841f1d, type: 3}
+  _banner: {fileID: 919132149155446097, guid: e84059c5fcdd24c4faa4cf715509083c, type: 3}
+  _tickCount: 5
+  _waitTime: 1
+  _regeneration: 0.5
+  _additionalDamage: 0.5
+  _zoneRadius: 6
