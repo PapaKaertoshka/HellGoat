@@ -61,13 +61,13 @@ namespace Player
         
             if (size > 0)
             {
-                // Health healthScript= hits[0].transform.gameObject.GetComponent<Health>();
-                // if (healthScript != null)
-                // {
-                //     OnAttack?.Invoke(hits[0].transform.gameObject);
-                //     
-                //     healthScript.TakeDamage(_attackDamage);
-                // }
+                dummy healthScript= hits[0].transform.gameObject.GetComponent<dummy>();
+                if (healthScript != null)
+                {
+                    OnAttack?.Invoke(hits[0].transform.gameObject);
+                    
+                    healthScript.TakeDamage(_attackDamage);
+                }
             }
         }
 
