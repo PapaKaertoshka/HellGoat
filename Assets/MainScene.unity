@@ -524,7 +524,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5efa92910c8b1244d9930d6d6a1404db, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.19
+      value: 1.4
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5efa92910c8b1244d9930d6d6a1404db, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1021,7 +1021,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 550b34a5ad7484806a56786a4294d409, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  preset: {fileID: 11400000, guid: e1379efa995ab6b4caac7d1a93594a9d, type: 2}
+  preset: {fileID: 0}
   floors: []
   walls: []
   doors: []
