@@ -15,9 +15,9 @@ namespace RoomGen
 
         [Space]
         [Header("Room Size")]
-        [Range(1, 20)]
+        [Range(1, 100)]
         public int gridX = 2;
-        [Range(1, 20)]
+        [Range(1, 100)]
         public int gridZ = 2;
 
         public List<Level> levels = new List<Level>();
