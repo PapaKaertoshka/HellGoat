@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class MainMenu : MonoBehaviour
 {
-    [SerializeField] private LevelLoader _levelLoader;
-
     [SerializeField] private Button _continueButton;
 
-
-    private bool _isMusicPlayed = false;
-
+    [SerializeField] private GameObject _settingsMenu;
+    
+    [SerializeField] private GameObject _loadingScreen;
+    
     private void Awake()
     {
         if (IsSaveEmpty())
@@ -23,17 +22,22 @@ public class MainMenu : MonoBehaviour
     
     public void NewRise()
     {
-        _levelLoader.LoadLevel("Scenes/MainScene");
+        _loadingScreen.SetActive(true);
+        _loadingScreen.GetComponent<LevelLoader>().LoadLevel("Scenes/MainScene");
+        gameObject.SetActive(false);
     }
     
     public void Continue()
     {
-        _levelLoader.LoadLevel("Scenes/MainScene");
+        _loadingScreen.SetActive(true);
+        _loadingScreen.GetComponent<LevelLoader>().LoadLevel("Scenes/MainScene");
+        gameObject.SetActive(false);
     }
     
     public void Settings()
     {
-        //_settingsMenu.SetActive(true);
+        _settingsMenu.SetActive(true);
+        gameObject.SetActive(false);
     }
 
     public void QuitGame()
@@ -42,6 +46,6 @@ public class MainMenu : MonoBehaviour
     }
     private bool IsSaveEmpty()
     {
-        return false;
+        return true;
     }
 }

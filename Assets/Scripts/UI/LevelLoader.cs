@@ -8,14 +8,8 @@ using UnityEngine.UI;
 
 public class LevelLoader : MonoBehaviour
 {
-    [SerializeField] private GameObject _loadingScreen;
     [SerializeField] private Slider _slider;
     [SerializeField] private TMP_Text _progressText;
-    
-    private void Awake()
-    {
-        _loadingScreen.SetActive(false);
-    }
 
     public void LoadLevel(string name)
     {
@@ -25,8 +19,6 @@ public class LevelLoader : MonoBehaviour
     IEnumerator LoadAsynchronously(string name)
     {
         AsyncOperation operation = SceneManager.LoadSceneAsync(name);
-
-        _loadingScreen.SetActive(true);
 
         while (!operation.isDone)
         {
