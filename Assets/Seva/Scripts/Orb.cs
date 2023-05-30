@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Player;
 
 public class Orb : MonoBehaviour
 {
@@ -8,10 +9,10 @@ public class Orb : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Player player = collision.gameObject.GetComponent<Player>();
+        PlayerMovement player = collision.gameObject.GetComponent<PlayerMovement>();
         if (player)
         {
-            player.Damage(damage);
+            //player.Damage(damage);
 
             Destroy(this.gameObject);
         }

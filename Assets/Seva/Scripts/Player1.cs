@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-public class Player : MonoBehaviour
+public class Player1 : MonoBehaviour
 {
     [SerializeField, Range(0f, 10f)] private float speed;
     [SerializeField, Range(0f, 10f)] private float maxHP;
