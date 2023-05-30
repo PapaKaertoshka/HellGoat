@@ -6,16 +6,14 @@ namespace Player
 {
     public class PlayerHealth : MonoBehaviour
     {
-        [SerializeField] private float _maxHealth;
-        private float _currentHealth;
+        [SerializeField] private int _maxHealth;
+        private int _currentHealth;
 
         [SerializeField] private HealthBarScript healthBar;
     
         private Animator _animator;
     
         private PlayerInput _playerInput;
-
-    
 
         void Awake()
         {
@@ -26,28 +24,27 @@ namespace Player
         void Start()
         {
             _currentHealth = _maxHealth;
-            healthBar.SetMaxhealth(_currentHealth);
         }
 
-        public void TakeDamage(float damage)
+        public void TakeDamage(int damage)
         {
             _currentHealth -= damage;
             healthBar.SetHealth(_currentHealth);
-            if (_currentHealth > 0)
-            {
-                _animator.SetTrigger("DamageTrigger");
-                StartCoroutine(DeactivateInputForSecondsCoroutine(
-                    _animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1));
-            }
-            else
-            {
-                _animator.SetTrigger("DieTrigger");
-            
-                CharacterController characterController = GetComponent<CharacterController>();
-                _playerInput.DeactivateInput();
-                characterController.enabled = false;
-
-            }
+            // if (_currentHealth > 0)
+            // {
+            //     _animator.SetTrigger("DamageTrigger");
+            //     StartCoroutine(DeactivateInputForSecondsCoroutine(
+            //         _animator.GetCurrentAnimatorStateInfo(0).normalizedTime % 1));
+            // }
+            // else
+            // {
+            //     _animator.SetTrigger("DieTrigger");
+            //
+            //     CharacterController characterController = GetComponent<CharacterController>();
+            //     _playerInput.DeactivateInput();
+            //     characterController.enabled = false;
+            //
+            // }
         }
 
         IEnumerator DeactivateInputForSecondsCoroutine(float animationTime)
@@ -57,7 +54,7 @@ namespace Player
             _playerInput.ActivateInput();
         }
 
-        public void AddHealth(float health)
+        public void AddHealth(int health)
         {
             _currentHealth += health;
             if (_currentHealth > _maxHealth)
@@ -71,24 +68,10 @@ namespace Player
         
         }
 
-        public void SetHealth(float health)
+        public void SetHealth(int health)
         {
             _currentHealth = health;
             healthBar.SetHealth(_currentHealth);
-        }
-
-        public void AddMaxHealth(float health)
-        {
-            _maxHealth += health;
-            _currentHealth += health;
-            healthBar.AddMaxHealth(health);
-        }
-
-        public void SubstractMaxHealth(float health)
-        {
-            _maxHealth -= health;
-            _currentHealth -= health;
-            healthBar.SubstractMaxHealth(health);
         }
     }
 }

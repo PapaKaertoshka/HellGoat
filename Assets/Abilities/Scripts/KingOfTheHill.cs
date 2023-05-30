@@ -59,7 +59,7 @@ public class KingOfTheHill : Ability
         {
             if (_playerHealth != null)
             {
-                _playerHealth.AddHealth(_kingOfTheHillContext.Regeneration);
+                //_playerHealth.AddHealth(_kingOfTheHillContext.Regeneration);
             }
 
             yield return new WaitForSeconds( _kingOfTheHillContext.WaitTime);
