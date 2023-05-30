@@ -1,47 +1,62 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UI;
+
 
 public class HealthBarScript : MonoBehaviour
 {
-    [SerializeField] private Slider slider;
+    [SerializeField] private float _delay;
     
-    [SerializeField] private GameObject healthBarCanvas;
+    [SerializeField] private List<GameObject> _healthUI= new List<GameObject>();
+
+    private int _currentHealth = 20;
     
-    public void SetHealth(float health)
+    public void SetHealth(int health)
     {
-        slider.value = health;
-    }
-
-    public void SetMaxhealth(float maxHealth)
-    {
-        slider.maxValue = maxHealth;
-        slider.value = maxHealth;
-    }
-
-    public void AddMaxHealth(float additional)
-    {
-        slider.maxValue += additional;
-        slider.value += additional;
-    }
-
-    public void SubstractMaxHealth(float substraction)
-    {
-        slider.maxValue += substraction;
-        slider.value += substraction;
-    }
-
-    public void DisableHealthBar()
-    {
-        if (healthBarCanvas != null)
+        if (_currentHealth < health)
         {
-            healthBarCanvas.SetActive(false);            
+            StartCoroutine(AddHealth(_currentHealth + health));
         }
+        else if (_currentHealth > health)
+        {
+            StartCoroutine(TakeDamage(_currentHealth - health));
 
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator TakeDamage(int damage)
     {
-        
+        for (int i = 0; i < damage; ++i)
+        {
+            _healthUI[ (int)Math.Ceiling((decimal)_currentHealth / 2) - 1 ].
+                transform.GetChild( _currentHealth % 2 ).
+                gameObject.SetActive(false);
+
+            --_currentHealth;
+            
+            yield return new WaitForSeconds(_delay);
+        }
     }
+
+    IEnumerator AddHealth(int heal)
+    {
+        for (int i = 0; i < heal; ++i)
+        {
+            _healthUI[ (int)Math.Ceiling((decimal)_currentHealth / 2) - 1 ].
+                transform.GetChild( _currentHealth % 2 ).
+                gameObject.SetActive(true);
+
+            ++_currentHealth;
+            
+            yield return new WaitForSeconds(_delay);
+        }
+    }
+
+    void OnDisable()
+    {
+        Debug.Log("was disabled");
+    }
+ 
 }
