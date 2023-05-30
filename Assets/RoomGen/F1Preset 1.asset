@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13e5487577a324bec8e1e97cb1208b45, type: 3}
+  m_Name: F1Preset 1
+  m_EditorClassIdentifier: 
+  floorTiles:
+  - prefab: {fileID: 2250331678392614973, guid: 22c6e078b5d9ce14a82379ca1fc577fe, type: 3}
+    positionOffset: {x: 0, y: 0, z: 0}
+    rotationOffset: {x: 0, y: 0, z: 0}
+    alignToSurface: 0
+    tileLayer:
+      serializedVersion: 2
+      m_Bits: 0
+    isExpanded: 1
+    allowDecor: 1
+  wallTiles: []
+  windowTiles: []
+  doorTiles: []
+  characters: []
+  wallDecorations: []
+  floorDecorations:
+  - prefab: {fileID: 5839752006639067326, guid: 257d6de16f7af8a40a0cdbbb567bbb2a, type: 3}
+    positionOffset: {x: 0, y: 0, z: 0}
+    verticalRange: {x: 0, y: 100}
+    probability: 0.002
+    randomRotation: 78
+    scaleRange: {x: 1, y: 1}
+    isExpanded: 1
+  - prefab: {fileID: 1910095581769507126, guid: c924a0f998eaf544da5fe1a2553b6dc0, type: 3}
+    positionOffset: {x: 0, y: 0, z: 0}
+    verticalRange: {x: 0, y: 100}
+    probability: 0.003
+    randomRotation: 0
+    scaleRange: {x: 1, y: 1}
+    isExpanded: 1
+  - prefab: {fileID: 545131998133900045, guid: da0a8040acbc16744b370fae60985574, type: 3}
+    positionOffset: {x: 0, y: 0, z: 0}
+    verticalRange: {x: 0, y: 100}
+    probability: 0.03
+    randomRotation: 0
+    scaleRange: {x: 1, y: 1}
+    isExpanded: 1
+  - prefab: {fileID: 6416873875122843827, guid: 2271e89282bff6c499f6c2d229856dfa, type: 3}
+    positionOffset: {x: 0, y: 0, z: 0}
+    verticalRange: {x: 0, y: 100}
+    probability: 0.03
+    randomRotation: 0
+    scaleRange: {x: 1, y: 1}
+    isExpanded: 1

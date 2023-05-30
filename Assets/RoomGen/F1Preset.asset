@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: F1Preset
   m_EditorClassIdentifier: 
   floorTiles:
-  - prefab: {fileID: 2900298114737615283, guid: f524bb63d25e5dd4396e0b3c34c74c62, type: 3}
+  - prefab: {fileID: 2250331678392614973, guid: 22c6e078b5d9ce14a82379ca1fc577fe, type: 3}
     positionOffset: {x: 0, y: 0, z: 0}
     rotationOffset: {x: 0, y: 0, z: 0}
     alignToSurface: 0
@@ -29,58 +29,58 @@ MonoBehaviour:
   wallDecorations: []
   floorDecorations:
   - prefab: {fileID: 5839752006639067326, guid: 257d6de16f7af8a40a0cdbbb567bbb2a, type: 3}
-    positionOffset: {x: 0, y: 0.81, z: 0}
+    positionOffset: {x: 0, y: 0, z: 0}
     verticalRange: {x: 0, y: 100}
-    probability: 0
+    probability: 0.002
     randomRotation: 78
     scaleRange: {x: 1, y: 1}
     isExpanded: 1
   - prefab: {fileID: 6901161643709610007, guid: f7b5c1c9e2de5ba43a3340e847338419, type: 3}
-    positionOffset: {x: 0, y: 0.98, z: 0}
+    positionOffset: {x: 0, y: 0, z: 0}
     verticalRange: {x: 0, y: 100}
     probability: 0.008
     randomRotation: 0
     scaleRange: {x: 1, y: 1}
     isExpanded: 1
   - prefab: {fileID: 4413794054223304415, guid: 620964130bfde68459c62e142e756d70, type: 3}
-    positionOffset: {x: 0, y: 0.94, z: 0}
+    positionOffset: {x: 0, y: 0, z: 0}
     verticalRange: {x: 0, y: 100}
-    probability: 0.117
+    probability: 0.008
     randomRotation: 294
     scaleRange: {x: 1.61, y: 1}
     isExpanded: 1
   - prefab: {fileID: 7871478139556537623, guid: d017b7c8728af93418d18d0f32bd556d, type: 3}
-    positionOffset: {x: 0, y: 0.84, z: 0}
+    positionOffset: {x: 0, y: 0, z: 0}
     verticalRange: {x: 0, y: 100}
-    probability: 0.097
+    probability: 0.035
     randomRotation: 0
     scaleRange: {x: 1, y: 1}
     isExpanded: 1
   - prefab: {fileID: 237523913339818167, guid: ae2ac515deb03c946b25eb75b589646c, type: 3}
-    positionOffset: {x: 0, y: 0.66, z: 0}
+    positionOffset: {x: 0, y: -0, z: 0}
     verticalRange: {x: 0, y: 100}
-    probability: 0.042
+    probability: 0.001
     randomRotation: 0
     scaleRange: {x: 1, y: 1}
     isExpanded: 1
   - prefab: {fileID: 100069077881565009, guid: b8dfa69d9d19f45429f2a25bdd19cdf2, type: 3}
-    positionOffset: {x: 0, y: 0.95, z: 0}
+    positionOffset: {x: 0, y: 0, z: 0}
     verticalRange: {x: 0, y: 100}
-    probability: 0
+    probability: 0.001
     randomRotation: 0
     scaleRange: {x: 1, y: 1}
     isExpanded: 1
   - prefab: {fileID: 354312333944800838, guid: 3e63a782ed17e4447b864c44064ff23c, type: 3}
-    positionOffset: {x: 0, y: 1.13, z: 0}
+    positionOffset: {x: 0, y: 0, z: 0}
     verticalRange: {x: 0, y: 100}
-    probability: 0.123
+    probability: 0.001
     randomRotation: 0
     scaleRange: {x: 1, y: 1}
     isExpanded: 1
   - prefab: {fileID: 1910095581769507126, guid: c924a0f998eaf544da5fe1a2553b6dc0, type: 3}
-    positionOffset: {x: 0, y: 0.74, z: 0}
+    positionOffset: {x: 0, y: 0, z: 0}
     verticalRange: {x: 0, y: 100}
-    probability: 0.008
+    probability: 0.003
     randomRotation: 0
     scaleRange: {x: 1, y: 1}
     isExpanded: 1
