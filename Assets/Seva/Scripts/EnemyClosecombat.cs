@@ -7,10 +7,16 @@ public class EnemyClosecombat : Enemy
     private Animator enemyAnim;
     private bool isAttacking = true;
     [SerializeField] private SphereCollider attackCollider;
+ 
+
     private void Start()
     {
         enemyAnim = GetAnimator();
         attackCollider.enabled = false;
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        //Player.TakeDamage(damage)
     }
     protected override void Attack()
     {
@@ -24,9 +30,9 @@ public class EnemyClosecombat : Enemy
     {
         isAttacking = false;
         attackCollider.enabled = true;
-        enemyAnim.SetBool("Attack", true);
-        yield return new WaitForSeconds(0.8f);
-        enemyAnim.SetBool("Attack", false);
+        enemyAnim.SetTrigger("Attack");
+        yield return new WaitForSeconds(1.6f);
+        //enemyAnim.SetBool("Attack", false);
         attackCollider.enabled = false;
         isAttacking = true;
     }
