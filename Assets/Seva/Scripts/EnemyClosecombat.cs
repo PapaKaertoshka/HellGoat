@@ -7,6 +7,7 @@ public class EnemyClosecombat : Enemy
     private Animator enemyAnim;
     private bool isAttacking = true;
     [SerializeField] private SphereCollider attackCollider;
+    [SerializeField] float animationTime;
  
 
     private void Start()
@@ -31,7 +32,7 @@ public class EnemyClosecombat : Enemy
         isAttacking = false;
         attackCollider.enabled = true;
         enemyAnim.SetTrigger("Attack");
-        yield return new WaitForSeconds(1.6f);
+        yield return new WaitForSeconds(animationTime);
         //enemyAnim.SetBool("Attack", false);
         attackCollider.enabled = false;
         isAttacking = true;

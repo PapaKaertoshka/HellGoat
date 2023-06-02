@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Player;
-using UnityEngine.InputSystem;
 using System;
 using Unity.VisualScripting;
+using UnityEngine.InputSystem;
 
-public abstract class Enemy : MonoBehaviour
+public class Vasiliy : MonoBehaviour
 {
     [Header("Base logic setup")]
     [SerializeField, Range(0f, 10f)] protected float speed;
@@ -15,22 +15,14 @@ public abstract class Enemy : MonoBehaviour
     [Header("Editor UI")]
     [SerializeField] private Color gizmoColor;
     [SerializeField] private int healtPonts;
-    [SerializeField] private Animator anim;
+    [SerializeField] public Animator anim;
 
     [SerializeField] protected PlayerMovement playerInstance;
     [SerializeField] protected int damage;
-
-
-
-    [SerializeField]
-    private InputActionReference Die;
+    public bool isAttacking = true;
+    [SerializeField] private SphereCollider attackCollider;
 
     private bool animIsPlaying = false;
-
-    public Animator GetAnimator()
-    {
-        return anim;
-    }
 
     protected void OnDrawGizmosSelected()
     {
@@ -40,7 +32,13 @@ public abstract class Enemy : MonoBehaviour
     }
 
 
-    protected abstract void Attack();   // Ovveride on child
+    private void Attack() {
+        if (isAttacking == true)
+        {
+            StartCoroutine(Attacking());
+            Debug.Log("Attacking!");
+        }
+    }
 
     private void Chase(float distance)
     {
@@ -49,13 +47,12 @@ public abstract class Enemy : MonoBehaviour
         if (distance < attackRadius)
         {
             transform.LookAt(playerInstance.transform);
-            anim.SetBool("Run Forward", false);
-           // anim.SetBool("Attack", true);
+            anim.SetBool("Walking", false);
             Attack();
         }
         else
         {
-            anim.SetBool("Run Forward", true);
+            anim.SetBool("Walking", true);
             //anim.SetBool("Attack", false);
             transform.LookAt(playerInstance.transform.position);
             transform.position += direction.normalized * speed * Time.deltaTime;
@@ -65,30 +62,35 @@ public abstract class Enemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         healtPonts -= damage;
-        if(healtPonts <= 0)
+        if (healtPonts <= 0)
         {
             StartCoroutine(Death());
         }
-    }
-    private void Wander()
-    {
-        // ToDo
     }
 
     protected void Update()
     {
         InputAction.CallbackContext input;
-       
+
         float distance = Vector3.Distance(transform.position, playerInstance.transform.position);
         if (distance < reactionRadius)
             Chase(distance);
-        else Wander();
-        
+
+    }
+    IEnumerator Attacking()
+    {
+        isAttacking = false;
+        attackCollider.enabled = true;
+        anim.SetBool("Attack", true);
+        yield return new WaitForSeconds(2.5f);
+       // anim.SetBool("Attack", false);
+        attackCollider.enabled = false;
+        isAttacking = true;
     }
     IEnumerator Death()
     {
-        anim.SetTrigger("Death");
-        yield return new WaitForSeconds(1f);
+        anim.SetBool("Dying",true);
+        yield return new WaitForSeconds(2f);
         GameObject.Destroy(this);
     }
 }
